@@ -9,8 +9,8 @@ jobs:
     - name: Install CVMFS
       run: |
         cd
-        curl -o ~/cvmfs-2.7.1.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.1/cvmfs-2.7.1.pkg
-        curl -o ~/osxfuse-3.10.4.dmg https://github.com/osxfuse/osxfuse/releases/download/osxfuse-3.10.4/osxfuse-3.10.4.dmg
+        curl -L -o ~/cvmfs-2.7.1.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.1/cvmfs-2.7.1.pkg
+        curl -L -o ~/osxfuse-3.10.4.dmg https://github.com/osxfuse/osxfuse/releases/download/osxfuse-3.10.4/osxfuse-3.10.4.dmg
         sudo hdiutil attach osxfuse-3.10.4.dmg
         sudo installer -package /Volumes/FUSE\ for\ macOS/FUSE\ for\ macOS.pkg -target /
         sudo hdiutil detach /Volumes/FUSE\ for\ macOS
