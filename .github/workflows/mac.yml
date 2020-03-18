@@ -14,3 +14,7 @@ jobs:
         sudo hdiutil attach osxfuse-3.10.4.dmg
         sudo installer -package /Volumes/FUSE\ for\ macOS/FUSE\ for\ macOS.pkg -target /
         sudo hdiutil detach /Volumes/FUSE\ for\ macOS
+        sudo installer -package cvmfs-2.7.1.pkg -target /
+        mkdir -p /Users/Shared/cvmfs/sft.cern.ch
+        sudo mount -t cvmfs sft.cern.ch /cvmfs/sft.cern.ch
+        ls /cvmfs/sft.cern.ch
