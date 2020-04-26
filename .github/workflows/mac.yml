@@ -9,16 +9,13 @@ jobs:
     - name: Install CVMFS
       run: |
         cd
+        brew cask install osxfuse
         curl -L -o ~/cvmfs-2.7.1.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.1/cvmfs-2.7.1.pkg
-        curl -L -o ~/osxfuse-3.10.4.dmg https://github.com/osxfuse/osxfuse/releases/download/osxfuse-3.10.4/osxfuse-3.10.4.dmg
-        sudo hdiutil attach osxfuse-3.10.4.dmg
-        sudo installer -package /Volumes/FUSE\ for\ macOS/FUSE\ for\ macOS.pkg -target /
-        sudo hdiutil detach /Volumes/FUSE\ for\ macOS
         sudo installer -package cvmfs-2.7.1.pkg -target /
-        mkdir -p ~/cvmfs/sft.cern.ch
+        mkdir -p /Users/Shared/cvmfs/sft.cern.ch
     - name: Install CVMFS
       run: |
-        sudo mount -t cvmfs sft.cern.ch ~/cvmfs/sft.cern.ch
-        ls ~/cvmfs/sft.cern.ch
+        sudo mount -t cvmfs sft.cern.ch /cvmfs/sft.cern.ch
+        ls /cvmfs/sft.cern.ch
         source /cvmfs/sft.cern.ch/lcg/views/LCG_97rc4python3/x86_64-mac1015-clang110-opt/setup.sh
         root-config --cflags
