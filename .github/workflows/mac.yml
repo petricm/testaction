@@ -13,6 +13,7 @@ jobs:
         curl -L -o ~/cvmfs-2.7.1.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.1/cvmfs-2.7.1.pkg
         sudo installer -package cvmfs-2.7.1.pkg -target /
         mkdir -p /Users/Shared/cvmfs/sft.cern.ch
+        mkdir -p /cvmfs/sft.cern.ch
     - name: Install CVMFS
       run: |
         sudo mount -t cvmfs sft.cern.ch /cvmfs/sft.cern.ch
