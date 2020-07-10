@@ -19,11 +19,10 @@ jobs:
         brew install gcc@5
         ls -l /usr/local/Cellar/gcc@5/5.5.0_4/lib/gcc/5/libgfortran.3.dylib
         ln -s /usr/local/Cellar/gcc@5/5.5.0_4/lib/gcc/5/libgfortran.3.dylib /usr/local/gfortran/lib/libgfortran.3.dylib
-        ls -l /usr/local/gfortran/lib/libgfortran.3.dylib
     - name: test CVMFS
       run: |
         sudo mount -t cvmfs sft.cern.ch /Users/Shared/cvmfs/sft.cern.ch
         ls /Users/Shared/cvmfs/sft.cern.ch
-        ls -l /usr/local/gfortran/lib/libgfortran.3.dylib
+        ls -l /usr/local/gfortran/lib/libgfortran*
         source /Users/Shared/cvmfs/sft.cern.ch/lcg/views/LCG_97apython3/x86_64-mac1015-clang110-opt/setup.sh
         root-config --cflags
