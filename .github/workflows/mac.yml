@@ -17,6 +17,7 @@ jobs:
         sudo mv default.local /etc/cvmfs/default.local
         sudo cvmfs_config setup
         brew cask install gfortran
+        locate libgfortran.3.dylib 
     - name: test CVMFS
       run: |
         sudo mount -t cvmfs sft.cern.ch /Users/Shared/cvmfs/sft.cern.ch
