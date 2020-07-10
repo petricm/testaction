@@ -20,7 +20,7 @@ jobs:
         sudo mkdir -p /usr/local/gfortran/lib/
         sudo ln -s /usr/local/Cellar/gcc@5/5.5.0_4/lib/gcc/5/libgfortran.3.dylib /usr/local/gfortran/lib/libgfortran.3.dylib
         sudo ln -s /usr/local/Cellar/gcc@5/5.5.0_4/lib/gcc/5/libquadmath.0.dylib /usr/local/gfortran/lib/libquadmath.0.dylib
-        sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/ /usr/local/include/X11
+        brew cask install xquartz
     - name: test CVMFS
       run: |
         mkdir -p /Users/Shared/cvmfs/sft.cern.ch
