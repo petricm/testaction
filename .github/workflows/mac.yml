@@ -20,6 +20,5 @@ jobs:
       run: |
         sudo mount -t cvmfs sft.cern.ch /Users/Shared/cvmfs/sft.cern.ch
         ls /Users/Shared/cvmfs/sft.cern.ch
-        ls /Users/Shared/cvmfs/sft.cern.ch/lcg/views/LCG_97rc4python3/x86_64-mac1015-clang110-opt/setup.sh
-        source /Users/Shared/cvmfs/sft.cern.ch/lcg/views/LCG_97rc4python3/x86_64-mac1015-clang110-opt/setup.sh
+        source /Users/Shared/cvmfs/sft.cern.ch/lcg/views/LCG_97apython3/x86_64-mac1015-clang110-opt/setup.sh
         root-config --cflags
