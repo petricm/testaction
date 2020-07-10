@@ -27,3 +27,22 @@ jobs:
         ls /Users/Shared/cvmfs/sft.cern.ch
         source /Users/Shared/cvmfs/sft.cern.ch/lcg/views/LCG_97apython3/x86_64-mac1015-clang110-opt/setup.sh
         root-config --cflags
+        git clone https://github.com/AIDASoft/DD4hep.git
+        cd DD4hep
+        export CXX=clang++
+        export CC=clang
+        export FC=""
+        mkdir build
+        cd build
+        cmake -GNinja -DDD4HEP_USE_GEANT4=ON -DBoost_NO_BOOST_CMAKE=ON -DDD4HEP_USE_LCIO=ON -DBUILD_TESTING=ON -DGeant4_DIR=$G4INSTALL/lib/Geant4-10.6.1 -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 ..
+        ninja
+        ninja install
+        . ../bin/thisdd4hep.sh
+        ctest --output-on-failure -j4
+        cd ../examples/
+        mkdir build
+        cd build
+        cmake -GNinja -DBoost_NO_BOOST_CMAKE=ON -DCMAKE_CXX_STANDARD=17 ..
+        ninja
+        ninja install
+        ctest --output-on-failure
