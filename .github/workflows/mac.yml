@@ -12,7 +12,6 @@ jobs:
         brew cask install osxfuse
         curl -L -o ~/cvmfs-2.7.1.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.1/cvmfs-2.7.1.pkg
         sudo installer -package cvmfs-2.7.1.pkg -target /
-        mkdir -p /Users/Shared/cvmfs/sft.cern.ch
         wget --no-check-certificate https://lcd-data.web.cern.ch/lcd-data/CernVM/default.local
         sudo mv default.local /etc/cvmfs/default.local
         sudo cvmfs_config setup
@@ -23,6 +22,8 @@ jobs:
         sudo ln -s /usr/local/Cellar/gcc@5/5.5.0_4/lib/gcc/5/libquadmath.0.dylib /usr/local/gfortran/lib/libquadmath.0.dylib
     - name: test CVMFS
       run: |
+        mkdir -p /Users/Shared/cvmfs/sft.cern.ch
+        mkdir -p /Users/Shared/cvmfs/geant4.cern.ch
         sudo mount -t cvmfs sft.cern.ch /Users/Shared/cvmfs/sft.cern.ch
         sudo mount -t cvmfs geant4.cern.ch /Users/Shared/cvmfs/geant4.cern.ch
         ls /Users/Shared/cvmfs/sft.cern.ch
