@@ -17,10 +17,13 @@ jobs:
         sudo mv default.local /etc/cvmfs/default.local
         sudo cvmfs_config setup
         brew install gcc@5
-        ln /usr/local/Cellar/gcc@5/5.5.0_4/lib/gcc/5/libgfortran.3.dylib /usr/local/lib/libgfortran.3.dylib
+        ls -l /usr/local/Cellar/gcc@5/5.5.0_4/lib/gcc/5/libgfortran.3.dylib
+        ln -s /usr/local/Cellar/gcc@5/5.5.0_4/lib/gcc/5/libgfortran.3.dylib /usr/local/lib/libgfortran.3.dylib
+        ls -l /usr/local/lib/libgfortran.3.dylib
     - name: test CVMFS
       run: |
         sudo mount -t cvmfs sft.cern.ch /Users/Shared/cvmfs/sft.cern.ch
         ls /Users/Shared/cvmfs/sft.cern.ch
+        ls -l /usr/local/lib/libgfortran.3.dylib
         source /Users/Shared/cvmfs/sft.cern.ch/lcg/views/LCG_97apython3/x86_64-mac1015-clang110-opt/setup.sh
         root-config --cflags
