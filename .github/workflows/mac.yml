@@ -16,6 +16,7 @@ jobs:
         wget --no-check-certificate https://lcd-data.web.cern.ch/lcd-data/CernVM/default.local
         sudo mv default.local /etc/cvmfs/default.local
         sudo cvmfs_config setup
+        brew install gfortran
     - name: test CVMFS
       run: |
         sudo mount -t cvmfs sft.cern.ch /Users/Shared/cvmfs/sft.cern.ch
