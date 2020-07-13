@@ -31,7 +31,7 @@ jobs:
         ls /Users/Shared/cvmfs/geant4.cern.ch
         source /Users/Shared/cvmfs/sft.cern.ch/lcg/views/LCG_97apython3/x86_64-mac1015-clang110-opt/setup.sh
         root-config --cflags
-        git clone https://github.com/AIDASoft/DD4hep.git
+        git clone https://github.com/petricm/DD4hep.git
         cd DD4hep
         export CXX=clang++
         export CC=clang
